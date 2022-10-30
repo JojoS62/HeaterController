@@ -1,0 +1,23 @@
+buildType:
+  default: Develop
+  choices:
+    Develop:
+      short: Develop
+      long: Emit debug information but also optimize
+      buildType: Develop
+    Debug:
+      short: Debug
+      long: Emit debug information and don't optimize
+      buildType: Debug
+    Release:
+      short: Release
+      long: Optimize generated code
+      buildType: Release
+board:
+  default: DISCO_F769NI
+  choices:
+    STM32F769I-DISCO:
+      short: DISCO_F769NI
+      settings:
+        MBED_TARGET: DISCO_F769NI
+        UPLOAD_METHOD: NONE
