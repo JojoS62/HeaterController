@@ -1,12 +1,14 @@
 #include "mbed.h"
 
-DigitalOut  led(LED1);
+DigitalOut  ledRed(LED1, 0);
+DigitalOut  ledGreen(LED2, 1);
 
 int main()
 {
 	while(true) {
-        led = !led;
-
+        ledRed = !ledRed;
+        ledGreen = !ledGreen;
+        
         ThisThread::sleep_for(500ms);
     }
 

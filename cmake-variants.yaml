@@ -20,4 +20,4 @@ board:
       short: DISCO_F769NI
       settings:
         MBED_TARGET: DISCO_F769NI
-        UPLOAD_METHOD: NONE
+        UPLOAD_METHOD: JLINK
