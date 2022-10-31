@@ -15,31 +15,32 @@ project(HeaterController)
 # add subdirectories and build targets here
 add_executable(HeaterControllerF769 
     src/main.cpp
-    src/lvgl_interface.cpp)
+    src/lvgl_interface.cpp
+)
 
 set(MICROPY_DIR true)           # force lvgl to create an interface lib
+add_subdirectory(${LIB_PATH}sdio)
 add_subdirectory(${LIB_PATH}bsp)
 add_subdirectory(${LIB_PATH}lvgl)
 add_subdirectory(${LIB_PATH}lvglDriver)
 
+
 add_library(lvgl ALIAS lvgl_interface)   # for compatibility with static/interface libs
-
-list(APPEND EXTRA_INCLUDES "${LIB_PATH}lvgl")
-
-list(APPEND EXTRA_LIBS lvglDriver)     # interface lib
-list(APPEND EXTRA_INCLUDES "${LIB_PATH}lvglDriver")
 
 target_link_libraries(HeaterControllerF769
     PRIVATE
         mbed-os
-        ${EXTRA_LIBS}
-    )
+        mbed-storage
+        component_sdio
+        lvglDriver
+)
 
 target_include_directories(HeaterControllerF769 
     PRIVATE 
         ${CMAKE_CURRENT_SOURCE_DIR}
-        ${EXTRA_INCLUDES}
-    )
+        "${LIB_PATH}lvgl"
+        "${LIB_PATH}lvglDriver"
+)
 
 
 mbed_set_post_build(HeaterControllerF769)

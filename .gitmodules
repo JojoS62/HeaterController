@@ -11,3 +11,6 @@
 [submodule "libs/bsp"]
 	path = libs/bsp
 	url = https://github.com/JojoS62/drivers.git
+[submodule "libs/sdio"]
+	path = libs/sdio
+	url = https://github.com/JojoS62/COMPONENT_SDIO.git
