@@ -14,10 +14,15 @@ buildType:
       long: Optimize generated code
       buildType: Release
 board:
-  default: DISCO_F769NI
+  default: F769NI-STM32CUBE
   choices:
-    STM32F769I-DISCO:
-      short: DISCO_F769NI
+    F769I-JLink:
+      short: F769NI-JLink
       settings:
         MBED_TARGET: DISCO_F769NI
-        UPLOAD_METHOD: JLINK
+        UPLOAD_METHOD: JLINK    
+    F769I-STM32CUBE:
+      short: F769NI-STM32CUBE
+      settings:
+        MBED_TARGET: DISCO_F769NI
+        UPLOAD_METHOD: STM32CUBE

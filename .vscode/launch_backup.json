@@ -2,8 +2,8 @@
     "configurations": [
 		{
 			"type": "cortex-debug",
-			"name": "Connect to GDB HSDTriggerController NUCLEO_F746ZG Debug",
-			"executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HSDTriggerController/build/HSDTriggerController.elf",
+			"name": "Connect to GDB  Debug",
+			"executable": "build/HeaterControllerF769.elf",
 			"cwd": "${workspaceRoot}",
 			"gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-gdb.exe",
 			"objdumpPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-objdump.exe",
@@ -14,20 +14,20 @@
 		},
 		{
 			"type": "cortex-debug",
-			"name": "jlink F746ZG",
-			"executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HSDTriggerController/build/HSDTriggerController.elf",
+			"name": "jlink debug",
+			"executable": "build/HeaterControllerF769.elf",
 			"cwd": "${workspaceRoot}",
 			"gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-gdb.exe",
 			"objdumpPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-objdump.exe",
 			"request": "launch",
 			"servertype": "jlink",
-			"device": "STM32F746ZG",
+			"device": "STM32F769NI",
 			"runToEntryPoint": "main"
 		},
 		{
 			"type": "cortex-debug",
-			"name": "stlink F746ZG",
-			"executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HSDTriggerController/build/HSDTriggerController.elf",
+			"name": "stlink debug",
+			"executable": "build/HeaterControllerF769.elf",
 			"cwd": "${workspaceRoot}",
 			"gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-gdb.exe",
 			"objdumpPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-objdump.exe",

@@ -4,6 +4,8 @@ cmake_policy(VERSION 3.19)
 # Initialize Mbed OS build system. 
 # Note: This block must be before the include of app.cmake
 set(MBED_APP_JSON_PATH mbed_app.json)
+set(LIB_PATH "libs/")
+set(${OpenOCD_SCRIPT_DIR} "d:/Program Files/openocd-0.12/share/openocd/scripts/")
 
 include(mbed-os/tools/cmake/app.cmake)
 add_subdirectory(mbed-os)
@@ -11,8 +13,35 @@ add_subdirectory(mbed-os)
 project(HeaterController)
 
 # add subdirectories and build targets here
-add_executable(HeaterControllerF769 src/main.cpp)
-target_link_libraries(HeaterControllerF769 mbed-os) # Can also link to mbed-baremetal here
+add_executable(HeaterControllerF769 
+    src/main.cpp
+    src/lvgl_interface.cpp)
+
+set(MICROPY_DIR true)           # force lvgl to create an interface lib
+add_subdirectory(${LIB_PATH}bsp)
+add_subdirectory(${LIB_PATH}lvgl)
+add_subdirectory(${LIB_PATH}lvglDriver)
+
+add_library(lvgl ALIAS lvgl_interface)   # for compatibility with static/interface libs
+
+list(APPEND EXTRA_INCLUDES "${LIB_PATH}lvgl")
+
+list(APPEND EXTRA_LIBS lvglDriver)     # interface lib
+list(APPEND EXTRA_INCLUDES "${LIB_PATH}lvglDriver")
+
+target_link_libraries(HeaterControllerF769
+    PRIVATE
+        mbed-os
+        ${EXTRA_LIBS}
+    )
+
+target_include_directories(HeaterControllerF769 
+    PRIVATE 
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${EXTRA_INCLUDES}
+    )
+
+
 mbed_set_post_build(HeaterControllerF769)
 
 mbed_finalize_build()

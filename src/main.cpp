@@ -1,13 +1,16 @@
 #include "mbed.h"
+#include "lvgl_interface.h"
 
 DigitalOut  ledRed(LED1, 0);
-DigitalOut  ledGreen(LED2, 1);
+
 
 int main()
 {
+    // init lvgl
+    lvgl_interface_init();
+
 	while(true) {
         ledRed = !ledRed;
-        ledGreen = !ledGreen;
         
         ThisThread::sleep_for(500ms);
     }
