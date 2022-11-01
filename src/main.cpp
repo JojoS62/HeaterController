@@ -50,3 +50,8 @@ int main()
 	// If main() actually returns the processor will halt
 	return 0;
 }
+
+extern "C" {
+    void _kill() {};
+    void _getpid() {};
+}

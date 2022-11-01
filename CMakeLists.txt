@@ -9,6 +9,11 @@ set(${OpenOCD_SCRIPT_DIR} "d:/Program Files/openocd-0.12/share/openocd/scripts/"
 
 include(mbed-os/tools/cmake/app.cmake)
 add_subdirectory(mbed-os)
+set(MICROPY_DIR true)           # force lvgl to create an interface lib
+add_subdirectory(${LIB_PATH}sdio)
+add_subdirectory(${LIB_PATH}bsp)
+add_subdirectory(${LIB_PATH}lvgl)
+add_subdirectory(${LIB_PATH}lvglDriver)
 
 project(HeaterController)
 
@@ -16,14 +21,8 @@ project(HeaterController)
 add_executable(HeaterControllerF769 
     src/main.cpp
     src/lvgl_interface.cpp
+    src/lv_screens/lv_mainscreen.cpp
 )
-
-set(MICROPY_DIR true)           # force lvgl to create an interface lib
-add_subdirectory(${LIB_PATH}sdio)
-add_subdirectory(${LIB_PATH}bsp)
-add_subdirectory(${LIB_PATH}lvgl)
-add_subdirectory(${LIB_PATH}lvglDriver)
-
 
 add_library(lvgl ALIAS lvgl_interface)   # for compatibility with static/interface libs
 

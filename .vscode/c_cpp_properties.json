@@ -6,7 +6,7 @@
                 "${workspaceFolder}/**"
             ],
             "compilerPath": "",
-            "intelliSenseMode": "${default}",
+            "intelliSenseMode": "gcc-arm",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "configurationProvider": "ms-vscode.cmake-tools"
