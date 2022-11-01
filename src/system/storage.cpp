@@ -1,7 +1,5 @@
 #include "mbed.h"
-#include "SDIOBlockDevice.h"
-#include "FATFileSystem.h"
-
+#include "storage.h"
 
 SDIOBlockDevice bd;
 FATFileSystem fs("sda", &bd);

@@ -10,10 +10,8 @@ set(${OpenOCD_SCRIPT_DIR} "d:/Program Files/openocd-0.12/share/openocd/scripts/"
 include(mbed-os/tools/cmake/app.cmake)
 add_subdirectory(mbed-os)
 set(MICROPY_DIR true)           # force lvgl to create an interface lib
-add_subdirectory(${LIB_PATH}sdio)
-add_subdirectory(${LIB_PATH}bsp)
-add_subdirectory(${LIB_PATH}lvgl)
-add_subdirectory(${LIB_PATH}lvglDriver)
+add_subdirectory(${LIB_PATH})
+
 
 project(HeaterController)
 
@@ -23,6 +21,11 @@ add_executable(HeaterControllerF769
     src/lvgl_interface.cpp
     src/lv_screens/lv_mainscreen.cpp
     src/system/storage.cpp
+    src/system/network.cpp
+    src/system/mqtt.cpp
+    src/system/DS1820.cpp
+    src/system/LL.cpp
+    src/system/io.cpp
 )
 
 add_library(lvgl ALIAS lvgl_interface)   # for compatibility with static/interface libs
@@ -31,8 +34,10 @@ target_link_libraries(HeaterControllerF769
     PRIVATE
         mbed-os
         mbed-storage
+        mbed-netsocket
         component_sdio
         lvglDriver
+        MQTT_client
 )
 
 target_include_directories(HeaterControllerF769 

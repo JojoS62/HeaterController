@@ -1,10 +1,11 @@
 #include "mbed.h"
 #include "lvgl_interface.h"
 #include "system/storage.h"
-
+#include "system/network.h"
+#include "system/mqtt.h"
+#include "system/io.h"
 
 DigitalOut  ledRed(LED1, 0);
-
 
 int main()
 {
@@ -12,8 +13,10 @@ int main()
     print_dir(&fs, "/");
     printf("\n"); 
 
-    // init lvgl
+    io_init();
     lvgl_interface_init();
+    network_init();
+    mqtt_init();
 
 	while(true) {
         ledRed = !ledRed;
@@ -26,6 +29,7 @@ int main()
 	return 0;
 }
 
+// workaround for missing functions since gcc 11.3
 extern "C" {
     void _kill() {};
     void _getpid() {};

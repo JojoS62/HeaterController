@@ -14,6 +14,20 @@ extern "C" {
 
 #include "lvgl.h"
 
+class LV_HCWidget {
+    public:
+
+    LV_HCWidget() {};
+
+    void createScreen(const char *text, int x, int y);
+    
+    void setValueHeatFlow(float val);
+    void setValueHeatReturn(float val);
+    
+    private:
+    lv_obj_t* lbl_heatflow_val;
+    lv_obj_t* lbl_heatreturn_val;
+};
 
      /*********************
       *      DEFINES

@@ -88,6 +88,10 @@ void lvgl_interface_init() {
     // start threads
     tickerLvgl.attach(&fnLvTicker, 2ms);
 
+  	// register update handler. Task will call screen dependent cyclic updates
+    lv_timer_create(lv_screen_update, 200,  lvglDisplay->getLVDisp());
+
+
     // create_lv_screen(lvglDisplay->getLVDisp());
     lv_mainscreen();
 

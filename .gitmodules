@@ -14,3 +14,6 @@
 [submodule "libs/sdio"]
 	path = libs/sdio
 	url = https://github.com/JojoS62/COMPONENT_SDIO.git
+[submodule "libs/mqtt"]
+	path = libs/mqtt
+	url = https://github.com/JojoS62/mqtt.git

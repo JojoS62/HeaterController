@@ -1,54 +1,55 @@
 ﻿#include "./lv_mainscreen.h"
 #include <cstdio>
+#include "../system/io.h"
 
 static lv_style_t style_counter;
 static lv_style_t style_counterlabel;
+static void lvParameterScreen_update_task(bool firstStart);
 
-class LV_HCWidget {
-    public:
-    LV_HCWidget(const char *text, int x, int y) {
-        // create common text label
-        lv_obj_t* lbl_heatflow = lv_label_create(lv_scr_act());
-        lv_label_set_text(lbl_heatflow, text);
-        lv_obj_add_style(lbl_heatflow, &style_counterlabel, 0);
-        lv_obj_set_width(lbl_heatflow, 200);
-        lv_obj_set_pos(lbl_heatflow, x, y);
+static LV_HCWidget lv_hcWidgetFBH;
+static LV_HCWidget lv_hcWidgetEG;
+static LV_HCWidget lv_hcWidgetOG;
 
-        // create heatflow value
-        lbl_heatflow_val = lv_label_create(lv_scr_act());
-        lv_label_set_text(lbl_heatflow_val, "37.0 °C");
-        lv_obj_add_style(lbl_heatflow_val, &style_counter, 0);
-        lv_obj_set_style_bg_color(lbl_heatflow_val, lv_palette_main(LV_PALETTE_ORANGE), LV_PART_MAIN);
-        lv_obj_align_to(lbl_heatflow_val, lbl_heatflow, LV_ALIGN_OUT_RIGHT_BOTTOM, 20, 0);
-        lv_obj_set_style_pad_left(lbl_heatflow_val, 0, LV_PART_MAIN);
 
-        // create heatreturn value below
-        lbl_heatreturn_val = lv_label_create(lv_scr_act());
-        lv_obj_add_style(lbl_heatreturn_val, &style_counter, 0);
-        lv_obj_align_to(lbl_heatreturn_val, lbl_heatflow_val, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 10);
-        lv_label_set_text(lbl_heatreturn_val, "22.0 °C");
-        lv_obj_set_style_bg_color(lbl_heatreturn_val, lv_palette_main(LV_PALETTE_CYAN), LV_PART_MAIN);
+void LV_HCWidget::createScreen(const char *text, int x, int y) {
+    // create common text label
+    lv_obj_t* lbl_heatflow = lv_label_create(lv_scr_act());
+    lv_label_set_text(lbl_heatflow, text);
+    lv_obj_add_style(lbl_heatflow, &style_counterlabel, 0);
+    lv_obj_set_width(lbl_heatflow, 200);
+    lv_obj_set_pos(lbl_heatflow, x, y);
 
-        // move common label between values y pos
-        lv_obj_set_pos(lbl_heatflow, x, y + lv_obj_get_height(lbl_heatflow_val)/2);
-    }
+    // create heatflow value
+    lbl_heatflow_val = lv_label_create(lv_scr_act());
+    lv_label_set_text(lbl_heatflow_val, "37.0 °C");
+    lv_obj_add_style(lbl_heatflow_val, &style_counter, 0);
+    lv_obj_set_style_bg_color(lbl_heatflow_val, lv_palette_main(LV_PALETTE_ORANGE), LV_PART_MAIN);
+    lv_obj_align_to(lbl_heatflow_val, lbl_heatflow, LV_ALIGN_OUT_RIGHT_BOTTOM, 20, 0);
+    lv_obj_set_style_pad_left(lbl_heatflow_val, 0, LV_PART_MAIN);
 
-    void setValueHeatFlow(float val) {
-        char s[16];
-        snprintf(s, sizeof(s), "%5.1f °C", val);
-        lv_label_set_text(lbl_heatflow_val, s);
-    }
+    // create heatreturn value below
+    lbl_heatreturn_val = lv_label_create(lv_scr_act());
+    lv_obj_add_style(lbl_heatreturn_val, &style_counter, 0);
+    lv_obj_align_to(lbl_heatreturn_val, lbl_heatflow_val, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 10);
+    lv_label_set_text(lbl_heatreturn_val, "22.0 °C");
+    lv_obj_set_style_bg_color(lbl_heatreturn_val, lv_palette_main(LV_PALETTE_CYAN), LV_PART_MAIN);
 
-    void setValueHeatReturn(float val) {
-        char s[16];
-        snprintf(s, sizeof(s), "%5.1f °C", val);
-        lv_label_set_text(lbl_heatreturn_val, s);
-    }
+    // move common label between values y pos
+    lv_obj_set_pos(lbl_heatflow, x, y + lv_obj_get_height(lbl_heatflow_val)/2);
+}
 
-    private:
-    lv_obj_t* lbl_heatflow_val;
-    lv_obj_t* lbl_heatreturn_val;
-};
+void LV_HCWidget::setValueHeatFlow(float val) {
+    char s[16];
+    snprintf(s, sizeof(s), "%5.1f °C", val);
+    lv_label_set_text(lbl_heatflow_val, s);
+}
+
+void LV_HCWidget::setValueHeatReturn(float val) {
+    char s[16];
+    snprintf(s, sizeof(s), "%5.1f °C", val);
+    lv_label_set_text(lbl_heatreturn_val, s);
+}
+
 
 static void btn_event_cb(lv_event_t* e)
 {
@@ -102,9 +103,11 @@ void lv_mainscreen(void)
     lv_style_set_pad_left(&style_counterlabel, 5);
     lv_style_set_text_font(&style_counterlabel, &lv_font_montserrat_28);
 
-    LV_HCWidget lv_hcWidgetFBH("FBH", 0, 10);
-    LV_HCWidget lv_hcWidgetEG("EG Statisch", 0, 150);
-    LV_HCWidget lv_hcWidgetOG("OG Statisch", 0, 290);
+    lv_hcWidgetFBH.createScreen("EG FBH", 0, 10);
+    lv_hcWidgetEG.createScreen("EG Statisch", 0, 150);
+    lv_hcWidgetOG.createScreen("OG Statisch", 0, 290);
+
+    lv_obj_set_user_data(lv_scr_act(), (void*)lvParameterScreen_update_task);
 
     // buttonbar
     // lv_obj_t* btnm1 = lv_btnmatrix_create(lv_scr_act());
@@ -113,6 +116,11 @@ void lv_mainscreen(void)
     // lv_obj_set_align(btnm1, LV_ALIGN_BOTTOM_MID);
 
     // lv_obj_add_event_cb(btnm1, event_handler, LV_EVENT_ALL, NULL);
+}
+
+static void lvParameterScreen_update_task(bool firstStart)
+{
+    lv_hcWidgetFBH.setValueHeatFlow(temperature1);
 }
 
 

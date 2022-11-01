@@ -1,0 +1,5 @@
+add_subdirectory(sdio)
+add_subdirectory(bsp)
+add_subdirectory(lvgl)
+add_subdirectory(lvglDriver)
+add_subdirectory(mqtt)

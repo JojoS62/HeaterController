@@ -1,5 +1,8 @@
 #pragma once
 
+#include "SDIOBlockDevice.h"
+#include "FATFileSystem.h"
+
 extern SDIOBlockDevice bd;
 extern FATFileSystem fs;
 
