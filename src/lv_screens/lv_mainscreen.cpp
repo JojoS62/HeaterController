@@ -7,11 +7,14 @@ static lv_style_t style_counterlabel;
 class LV_HCWidget {
     public:
     LV_HCWidget(const char *text, int x, int y) {
+        // create common text label
         lv_obj_t* lbl_heatflow = lv_label_create(lv_scr_act());
         lv_label_set_text(lbl_heatflow, text);
         lv_obj_add_style(lbl_heatflow, &style_counterlabel, 0);
+        lv_obj_set_width(lbl_heatflow, 200);
         lv_obj_set_pos(lbl_heatflow, x, y);
 
+        // create heatflow value
         lbl_heatflow_val = lv_label_create(lv_scr_act());
         lv_label_set_text(lbl_heatflow_val, "37.0 °C");
         lv_obj_add_style(lbl_heatflow_val, &style_counter, 0);
@@ -19,16 +22,15 @@ class LV_HCWidget {
         lv_obj_align_to(lbl_heatflow_val, lbl_heatflow, LV_ALIGN_OUT_RIGHT_BOTTOM, 20, 0);
         lv_obj_set_style_pad_left(lbl_heatflow_val, 0, LV_PART_MAIN);
 
-        lv_obj_t* lbl_heatreturn = lv_label_create(lv_scr_act());
-        lv_label_set_text(lbl_heatreturn, text);
-        lv_obj_add_style(lbl_heatreturn, &style_counterlabel, 0);
-        lv_obj_align_to(lbl_heatreturn, lbl_heatflow, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 10);
-
+        // create heatreturn value below
         lbl_heatreturn_val = lv_label_create(lv_scr_act());
         lv_obj_add_style(lbl_heatreturn_val, &style_counter, 0);
         lv_obj_align_to(lbl_heatreturn_val, lbl_heatflow_val, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 10);
         lv_label_set_text(lbl_heatreturn_val, "22.0 °C");
         lv_obj_set_style_bg_color(lbl_heatreturn_val, lv_palette_main(LV_PALETTE_CYAN), LV_PART_MAIN);
+
+        // move common label between values y pos
+        lv_obj_set_pos(lbl_heatflow, x, y + lv_obj_get_height(lbl_heatflow_val)/2);
     }
 
     void setValueHeatFlow(float val) {
