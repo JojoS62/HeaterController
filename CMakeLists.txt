@@ -22,6 +22,7 @@ add_executable(HeaterControllerF769
     src/main.cpp
     src/lvgl_interface.cpp
     src/lv_screens/lv_mainscreen.cpp
+    src/system/storage.cpp
 )
 
 add_library(lvgl ALIAS lvgl_interface)   # for compatibility with static/interface libs
