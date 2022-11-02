@@ -39,15 +39,21 @@ void LV_HCWidget::createScreen(const char *text, int x, int y) {
 }
 
 void LV_HCWidget::setValueHeatFlow(float val) {
-    char s[16];
-    snprintf(s, sizeof(s), "%5.1f °C", val);
-    lv_label_set_text(lbl_heatflow_val, s);
+    if (val != heatflow_val_old) {
+        char s[16];
+        snprintf(s, sizeof(s), "%5.1f °C", val);
+        lv_label_set_text(lbl_heatflow_val, s);
+        heatflow_val_old = val;
+    }
 }
 
 void LV_HCWidget::setValueHeatReturn(float val) {
-    char s[16];
-    snprintf(s, sizeof(s), "%5.1f °C", val);
-    lv_label_set_text(lbl_heatreturn_val, s);
+    if (val != heatreturn_val_old) {
+        char s[16];
+        snprintf(s, sizeof(s), "%5.1f °C", val);
+        lv_label_set_text(lbl_heatreturn_val, s);
+        heatreturn_val_old = val;
+    }
 }
 
 

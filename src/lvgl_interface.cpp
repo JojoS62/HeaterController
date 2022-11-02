@@ -6,7 +6,7 @@
 
 using rtos::Kernel::Clock;
 static Ticker tickerLvgl;
-static Thread lvglThread;
+static Thread lvglThread(osPriorityBelowNormal, 8192, nullptr, "lvgl");
 static DigitalOut  ledGreen(LED2, 1);
     
 //

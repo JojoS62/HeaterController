@@ -7,8 +7,8 @@ using namespace MQTT;
 
 const char* mqtt_listener_name = "mqtt_listener";
 const char* mqtt_sender_name = "mqtt_sender";
-static Thread thread_mqtt_listener(osPriorityNormal, 4096, nullptr, mqtt_listener_name);
-static Thread thread_mqtt_sender(osPriorityNormal, 4096, nullptr, mqtt_sender_name);
+static Thread thread_mqtt_listener(osPriorityNormal, 8192, nullptr, mqtt_listener_name);
+static Thread thread_mqtt_sender(osPriorityNormal, 8192, nullptr, mqtt_sender_name);
 
 static MQTTThreadedClient *mqtt;
 
@@ -52,12 +52,13 @@ void messageArrived(MessageData& md)
 }
 
 void mqtt_sender_fn(){
-    auto cycleTime = 5s;
+    auto cycleTime = 1s;
     printf("starting mqtt sender thread\n");
 
     while(true)
     {
         auto nextTime = Kernel::Clock::now() + cycleTime;
+        printf("send mqtt\n");
 
         PubMessage message;
         message.qos = QOS0;
@@ -66,9 +67,7 @@ void mqtt_sender_fn(){
         strcpy(&message.topic[0], topicCurrentValues);
         sprintf(&message.payload[0], "%7.1f", temperature1);
         message.payloadlen = strlen((const char *) &message.payload[0]);
-        if (mqtt) {
-            mqtt->publish(message);
-        }
+        mqtt->publish(message);
 
         ThisThread::sleep_until(nextTime);
     }

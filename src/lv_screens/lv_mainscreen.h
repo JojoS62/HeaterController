@@ -26,7 +26,9 @@ class LV_HCWidget {
     
     private:
     lv_obj_t* lbl_heatflow_val;
+    float heatflow_val_old;
     lv_obj_t* lbl_heatreturn_val;
+    float heatreturn_val_old;
 };
 
      /*********************
