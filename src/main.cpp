@@ -1,4 +1,5 @@
 #include "mbed.h"
+#include "mbed-trace/mbed_trace.h"
 #include "lvgl_interface.h"
 #include "system/storage.h"
 #include "system/network.h"
@@ -9,11 +10,13 @@ DigitalOut  ledRed(LED1, 0);
 
 int main()
 {
+    mbed_trace_init();
+
     // init sdc
     print_dir(&fs, "/");
-    printf("\n"); 
+    printf("\n\n"); 
 
-    io_init();
+    //io_init();
     lvgl_interface_init();
     network_init();
     mqtt_init();
