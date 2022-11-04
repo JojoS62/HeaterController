@@ -1,0 +1,25 @@
+{
+    "configurations": [
+		{
+			"cwd": "${workspaceFolder}",
+			"executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HeaterController/build/HeaterControllerF769.elf",
+			"name": "Debug with ST-Link",
+			"request": "launch",
+			"type": "cortex-debug",
+			"runToEntryPoint": "main",
+			"showDevDebugOutput": "none",
+			"servertype": "stlink"
+		},
+		{
+			"type": "cortex-debug",
+			"name": "Connect to GDB HeaterControllerF769 DISCO_F769NI Release",
+			"executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HeaterController/build/HeaterControllerF769.elf",
+			"cwd": "${workspaceRoot}",
+			"gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-gdb.exe",
+			"objdumpPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-objdump.exe",
+			"servertype": "external",
+			"gdbTarget": "localhost:23331",
+			"request": "attach"
+		},
+    ]
+}
