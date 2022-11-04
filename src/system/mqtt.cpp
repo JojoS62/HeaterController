@@ -79,7 +79,9 @@ void mqtt_init(){
     printf("starting mqtt version %.2f\n", version);
     mqtt = new MQTTThreadedClient(network);
 
-    //const char* hostname = "jojosRPi3-1";
+    // const char* hostname = "jojosRPi3-1";
+    // const char* hostname = "192.168.32.1";
+    // const char* hostname = "172.19.11.26";
     const char* hostname = "192.168.100.108";
     int port = 1883;
 
