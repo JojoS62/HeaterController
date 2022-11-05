@@ -7,6 +7,8 @@ set(MBED_APP_JSON_PATH mbed_app.json)
 set(LIB_PATH "libs/")
 set(${OpenOCD_SCRIPT_DIR} "d:/Program Files/openocd-0.12/share/openocd/scripts/")
 
+set(MBED_CUSTOM_LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/mbed-disco-f769ni-SRAM2.ld)
+
 include(mbed-os/tools/cmake/app.cmake)
 add_subdirectory(mbed-os)
 set(MICROPY_DIR true)           # force lvgl to create an interface lib
