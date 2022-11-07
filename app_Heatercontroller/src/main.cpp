@@ -14,7 +14,7 @@ int main()
 
     // init sdc
     print_dir(&fs, "/");
-    printf("\n\n"); 
+    printf("\n"); 
 
     //io_init();
     lvgl_interface_init();
