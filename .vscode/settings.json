@@ -7,5 +7,12 @@
             "clientId": "vsmqtt_client"
         }
     ],
-    "cortex-debug.variableUseNaturalFormat": false
+    "cortex-debug.variableUseNaturalFormat": false,
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "*.cpp": "cpp",
+        "*.htm": "html",
+        "*.html": "html",
+        "stm32f769i_discovery_lcd.h": "c"
+    }
 }
