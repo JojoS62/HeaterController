@@ -7,8 +7,10 @@
 using rtos::Kernel::Clock;
 static Ticker tickerLvgl;
 static Thread lvglThread(osPriorityBelowNormal, 8192, nullptr, "lvgl");
+#if defined(LED2)
 static DigitalOut  ledGreen(LED2, 1);
-    
+#endif    
+
 //
 // lv Ticker, executed in interrupt context
 //
@@ -76,7 +78,9 @@ void create_lv_screen(lv_disp_t* disp)
 
 void lvglThreadFn() {
     while(true) {
+#if defined(LED2)
         ledGreen = !ledGreen;
+#endif
         sleepWithLvHandler(50ms);
     }
 }
