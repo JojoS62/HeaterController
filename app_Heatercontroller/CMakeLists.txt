@@ -39,6 +39,5 @@ target_include_directories(HeaterControllerF769
 
 mbed_set_post_build(HeaterControllerF769)
 
-mbed_finalize_build()
 
 
