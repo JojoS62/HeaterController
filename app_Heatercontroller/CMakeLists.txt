@@ -7,7 +7,7 @@ add_subdirectory(${LIB_PATH} libs)
 add_library(lvgl ALIAS lvgl_interface)      # for compatibility with static/interface libs
 
 # add subdirectories and build targets here
-add_executable(HeaterControllerF769 
+add_executable(HeaterController 
     src/main.cpp
     src/lvgl_interface.cpp
     src/lv_screens/lv_mainscreen.cpp
@@ -19,7 +19,7 @@ add_executable(HeaterControllerF769
     src/system/io.cpp
 )
 
-target_link_libraries(HeaterControllerF769
+target_link_libraries(HeaterController
     PRIVATE
         mbed-os
         mbed-storage
@@ -29,7 +29,7 @@ target_link_libraries(HeaterControllerF769
         MQTT_client
 )
 
-target_include_directories(HeaterControllerF769 
+target_include_directories(HeaterController 
     PRIVATE 
         ${CMAKE_CURRENT_SOURCE_DIR}
         "${LIB_PATH}lvgl"
@@ -37,7 +37,7 @@ target_include_directories(HeaterControllerF769
 )
 
 
-mbed_set_post_build(HeaterControllerF769)
+mbed_set_post_build(HeaterController)
 
 
 
