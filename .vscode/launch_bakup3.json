@@ -1,0 +1,50 @@
+{
+    "configurations": [
+	{
+	    "type": "cortex-debug",
+	    "name": "Connect to GDB app_hello DISCO_F746NG Debug",
+	    "executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HeaterController/build/app_Hello/app_hello.elf",
+	    "cwd": "${workspaceRoot}",
+	    "gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-gdb.exe",
+		"objdumpPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-objdump.exe",
+		"servertype": "external",
+		"gdbTarget": "localhost:23331",
+		"request": "attach"
+	},
+	{
+	    "type": "cortex-debug",
+	    "name": "Connect to GDB HeaterController DISCO_F746NG Debug",
+	    "executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HeaterController/build/app_Heatercontroller/HeaterController.elf",
+	    "cwd": "${workspaceRoot}",
+	    "gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-gdb.exe",
+		"objdumpPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-objdump.exe",
+		"servertype": "external",
+		"gdbTarget": "localhost:23331",
+		"request": "attach"
+	},
+	{
+		"type": "cortex-debug",
+		"name": "launch jlink debug F746",
+	    "executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HeaterController/build/app_Hello/app_hello.elf",
+		"cwd": "${workspaceRoot}",
+		"gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-gdb.exe",
+		"objdumpPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-objdump.exe",
+		"request": "launch",
+		"servertype": "jlink",
+		"device": "STM32F746NG",
+		"runToEntryPoint": "main"
+	}
+	{
+		"type": "cortex-debug",
+		"name": "launch stlink debug F769",
+	    "executable": "D:/Projects/Sn/LocalGit/Mbed-CE/HeaterController/build/F769I-STM32CUBE-Debug/app_Hello/app_hello.elf",
+		"cwd": "${workspaceRoot}",
+		"gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-gdb.exe",
+		"objdumpPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/11.3 rel1/bin/arm-none-eabi-objdump.exe",
+		"request": "launch",
+		"servertype": "stlink",
+		"device": "STM32F769NI",
+		"runToEntryPoint": "main"
+	}
+    ]
+}
