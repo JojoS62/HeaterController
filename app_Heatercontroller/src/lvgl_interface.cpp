@@ -1,7 +1,7 @@
 #include "mbed.h"
 #include "lvgl.h"
-#include "lvglDispDriverBase.h"
-#include "lvglInputDriverBase.h"
+#include "LVGLDispDriverBase.h"
+#include "LVGLInputDriverBase.h"
 #include "lv_screens/lv_mainscreen.h"
 
 using rtos::Kernel::Clock;
