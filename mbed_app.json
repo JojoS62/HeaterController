@@ -5,7 +5,7 @@
             "platform.stdio-baud-rate": 115200,
             "platform.stdio-buffered-serial": 1,
             "mbed-http.http-buffer-size" : 1024,
-            "platform.all-stats-enabled": true,
+            "platform.all-stats-enabled": 1,
             "mbed-trace.enable": 1,
             "lwip.socket-max": 10,
             "lwip.tcp-socket-max": 10                  
