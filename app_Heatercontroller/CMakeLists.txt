@@ -17,6 +17,10 @@ add_executable(HeaterController
     src/system/DS1820.cpp
     src/system/LL.cpp
     src/system/io.cpp
+    src/lv_screens/ui_helpers.c
+    src/lv_screens/ui_img_icn_play_rev_png.c
+    src/lv_screens/ui.c
+    src/lv_screens/ui_img_icn_play_png.c
 )
 
 target_link_libraries(HeaterController

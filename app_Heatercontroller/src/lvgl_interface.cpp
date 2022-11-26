@@ -3,6 +3,7 @@
 #include "LVGLDispDriverBase.h"
 #include "LVGLInputDriverBase.h"
 #include "lv_screens/lv_mainscreen.h"
+#include "lv_screens/ui.h"
 
 using rtos::Kernel::Clock;
 static Ticker tickerLvgl;
@@ -97,7 +98,8 @@ void lvgl_interface_init() {
 
 
     // create_lv_screen(lvglDisplay->getLVDisp());
-    lv_mainscreen();
+    // lv_mainscreen();
+    ui_init();
 
     lvglThread.start(lvglThreadFn);
 }
