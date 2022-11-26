@@ -1,10 +1,6 @@
 buildType:
-  default: Develop
+  default: Debug
   choices:
-    Develop:
-      short: Develop
-      long: Emit debug information but also optimize
-      buildType: Develop
     Debug:
       short: Debug
       long: Emit debug information and don't optimize
@@ -21,7 +17,7 @@ board:
       settings:
         MBED_TARGET: DISCO_F746NG
         UPLOAD_METHOD: JLINK    
-    F769I-STM32CUBE:
+    F769NI-STM32CUBE:
       short: F769NI-STM32CUBE
       settings:
         MBED_TARGET: DISCO_F769NI
