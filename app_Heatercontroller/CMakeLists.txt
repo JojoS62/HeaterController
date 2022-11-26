@@ -36,8 +36,7 @@ target_include_directories(HeaterController
         "${LIB_PATH}lvglDriver"
 )
 
-
-mbed_set_post_build(HeaterController)
+mbed_set_post_build(HeaterController HeaterController mbed-disco-f769ni-SRAM2.ld)
 
 
 
