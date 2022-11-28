@@ -9,9 +9,12 @@ void io_thread_fn(){
 	while(true) {
         probe.convertTemperature(true, DS1820::all_devices);         //Start temperature conversion, wait until ready
 
-        temperature1 = probe.temperature();
-        // printf("It is %3.1f °C\n", temperature1);
-
+        float t = probe.temperature();
+        if(t > -20.0f  &&  t < 100.0f) {
+            temperature1 = t;
+            // printf("It is %3.1f °C\n", temperature1);
+        }
+    
         ThisThread::sleep_for(500ms);
     }
 }
