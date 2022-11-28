@@ -17,10 +17,10 @@ add_executable(HeaterController
     src/system/DS1820.cpp
     src/system/LL.cpp
     src/system/io.cpp
-    src/lv_screens/ui_helpers.c
-    src/lv_screens/ui_img_icn_play_rev_png.c
-    src/lv_screens/ui.c
+    src/lv_screens/ui.cpp
+    src/lv_screens/ui_helpers.cpp
     src/lv_screens/ui_img_icn_play_png.c
+    src/lv_screens/ui_img_icn_play_rev_png.c
 )
 
 target_link_libraries(HeaterController
@@ -38,6 +38,8 @@ target_include_directories(HeaterController
         ${CMAKE_CURRENT_SOURCE_DIR}
         "${LIB_PATH}lvgl"
         "${LIB_PATH}lvglDriver"
+        src
+        ${LIB_PATH}
 )
 
 mbed_set_post_build(HeaterController HeaterController mbed-disco-f769ni-SRAM2.ld)

@@ -24,7 +24,7 @@
  *====================*/
 
 /*Color depth: 1 (1 byte per pixel), 8 (RGB332), 16 (RGB565), 32 (ARGB8888)*/
-#define LV_COLOR_DEPTH     16
+#define LV_COLOR_DEPTH     32
 
 /*Swap the 2 bytes of RGB565 color. Useful if the display has an 8-bit interface (e.g. SPI)*/
 #define LV_COLOR_16_SWAP   0
@@ -305,13 +305,13 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
 #define LV_FONT_MONTSERRAT_10    1
 #define LV_FONT_MONTSERRAT_12    1
 #define LV_FONT_MONTSERRAT_14    1
-#define LV_FONT_MONTSERRAT_16    0
+#define LV_FONT_MONTSERRAT_16    1
 #define LV_FONT_MONTSERRAT_18    1
 #define LV_FONT_MONTSERRAT_20    0
 #define LV_FONT_MONTSERRAT_22    0
 #define LV_FONT_MONTSERRAT_24    0
 #define LV_FONT_MONTSERRAT_26    0
-#define LV_FONT_MONTSERRAT_28    0
+#define LV_FONT_MONTSERRAT_28    1
 #define LV_FONT_MONTSERRAT_30    0
 #define LV_FONT_MONTSERRAT_32    0
 #define LV_FONT_MONTSERRAT_34    0
@@ -434,7 +434,7 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h"*/
 
 #define LV_USE_LINE         1
 
-#define LV_USE_ROLLER       0   /*Requires: lv_label*/
+#define LV_USE_ROLLER       1   /*Requires: lv_label*/
 #if LV_USE_ROLLER
 #  define LV_ROLLER_INF_PAGES       7   /*Number of extra "pages" when the roller is infinite*/
 #endif
