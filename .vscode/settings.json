@@ -17,5 +17,8 @@
         "*.html": "html",
         "stm32f769i_discovery_lcd.h": "c"
     },
-    "debug.terminal.clearBeforeReusing": true
+    "debug.terminal.clearBeforeReusing": true,
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "master"
+    ]
 }
