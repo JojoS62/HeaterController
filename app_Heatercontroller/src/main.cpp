@@ -13,10 +13,10 @@ int main()
     mbed_trace_init();
 
     // init sdc
-    print_dir(&fs, "/");
-    printf("\n"); 
+    // print_dir(&fs, "/");
+    // printf("\n"); 
 
-    io_init();
+    // io_init();
     lvgl_interface_init();
     network_init();
     mqtt_init();

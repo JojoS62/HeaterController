@@ -12,8 +12,8 @@ project(HeaterController)
 
 add_subdirectory(mbed-os)
 
-add_subdirectory(app_Heatercontroller)
-add_subdirectory(app_Hello)
+add_subdirectory(app_Heatercontroller EXCLUDE_FROM_ALL)
+add_subdirectory(app_Hello EXCLUDE_FROM_ALL)
 
 mbed_finalize_build()
 

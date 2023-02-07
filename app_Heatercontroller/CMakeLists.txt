@@ -42,7 +42,11 @@ target_include_directories(HeaterController
         ${LIB_PATH}
 )
 
-mbed_set_post_build(HeaterController HeaterController mbed-disco-f769ni-SRAM2.ld)
+if("DISCO_F769NI" IN_LIST MBED_TARGET_LABELS)
+    set(CUSTOM_LINKER_SCRIPT  mbed-disco-f769ni-SRAM2.ld)
+endif()
+
+mbed_set_post_build(HeaterController ${CUSTOM_LINKER_SCRIPT})
 
 
 
