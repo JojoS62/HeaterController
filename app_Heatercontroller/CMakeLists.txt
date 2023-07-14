@@ -10,7 +10,6 @@ add_library(lvgl ALIAS lvgl_interface)      # for compatibility with static/inte
 add_executable(HeaterController 
     src/main.cpp
     src/lvgl_interface.cpp
-    src/lv_screens/lv_mainscreen.cpp
     src/system/storage.cpp
     src/system/network.cpp
     src/system/mqtt.cpp
@@ -19,6 +18,7 @@ add_executable(HeaterController
     src/system/io.cpp
     src/lv_screens/ui.cpp
     src/lv_screens/ui_helpers.cpp
+    src/lv_screens/lv_mainscreen.cpp
     src/lv_screens/ui_img_icn_play_png.c
     src/lv_screens/ui_img_icn_play_rev_png.c
 )
@@ -46,7 +46,7 @@ if("DISCO_F769NI" IN_LIST MBED_TARGET_LABELS)
     set(CUSTOM_LINKER_SCRIPT  mbed-disco-f769ni-SRAM2.ld)
 endif()
 
-mbed_set_post_build(HeaterController ${CUSTOM_LINKER_SCRIPT})
+mbed_set_post_build(HeaterController  ${CUSTOM_LINKER_SCRIPT})
 
 
 
