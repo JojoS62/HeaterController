@@ -7,7 +7,7 @@
 			"label": "Build HeaterController",
 			"type": "shell",
 			"command": "/opt/cmake-3.26.4-linux-x86_64/bin/cmake",
-			"args": ["--build", "/home/jojo/projects/HeaterController/build/F769NI-STM32CUBE-Debug", "--target", "HeaterController"],
+			"args": ["--build", "/home/jojo/projects/HeaterController/build/H747-STM32CUBE-Debug", "--target", "HeaterController"],
 		},
 		// Build HeaterController and run the GDB server
 		{
@@ -20,7 +20,7 @@
 			"label": "Build Hello",
 			"type": "shell",
 			"command": "/opt/cmake-3.26.4-linux-x86_64/bin/cmake",
-			"args": ["--build", "/home/jojo/projects/HeaterController/build/F769NI-STM32CUBE-Debug", "--target", "Hello"],
+			"args": ["--build", "/home/jojo/projects/HeaterController/build/H747-STM32CUBE-Debug", "--target", "Hello"],
 		},
 		// Build Hello and run the GDB server
 		{

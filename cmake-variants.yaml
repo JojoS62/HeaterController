@@ -22,3 +22,8 @@ board:
       settings:
         MBED_TARGET: DISCO_F769NI
         UPLOAD_METHOD: STM32CUBE
+    H747-STM32CUBE:
+      short: H747-STM32CUBE
+      settings:
+        MBED_TARGET: DISCO_H747I
+        UPLOAD_METHOD: STM32CUBE

@@ -17,7 +17,7 @@ int main()
     // printf("\n"); 
 
     // io_init();
-    lvgl_interface_init();
+    // lvgl_interface_init();
     network_init();
     mqtt_init();
 

@@ -9,6 +9,14 @@
             "mbed-trace.enable": 0,
             "lwip.socket-max": 10,
             "lwip.tcp-socket-max": 10                  
+        },
+        "DISCO_H747I": {
+            "target.network-default-interface-type": "ETHERNET",
+            "target.macros_add": [
+                "DISCO_H747I_ETHERNET_SOLDERBRIGE"
+            ],
+            "device_has_add": ["SDIO", "EMAC"],
+            "device_has_remove": ["QSPIF"]
         }
     }
 }
