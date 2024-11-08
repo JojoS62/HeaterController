@@ -32,8 +32,3 @@ int main()
 	return 0;
 }
 
-// workaround for missing functions since gcc 11.3
-extern "C" {
-    void _kill() {};
-    void _getpid() {};
-}
