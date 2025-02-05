@@ -27,8 +27,8 @@ target_link_libraries(HeaterController
     PRIVATE
         mbed-os
         mbed-storage
+        mbed-storage-sdio
         mbed-netsocket
-        mbed-storage-sdio 
         lvglDriver
         MQTT_client
 )
@@ -44,6 +44,10 @@ target_include_directories(HeaterController
 
 if("DISCO_F769NI" IN_LIST MBED_TARGET_LABELS)
     set(CUSTOM_LINKER_SCRIPT  mbed-disco-f769ni-SRAM2.ld)
+endif()
+
+if("DISCO_H747I" IN_LIST MBED_TARGET_LABELS)
+    set(CUSTOM_LINKER_SCRIPT  mbed-disco-h747i-SRAM2.ld)
 endif()
 
 mbed_set_post_build(HeaterController  ${CUSTOM_LINKER_SCRIPT})

@@ -80,10 +80,11 @@ void mqtt_init(){
     mqtt = new MQTTThreadedClient(network);
 
     // const char* hostname = "jojosRPi3-1";
-    // const char* hostname = "192.168.32.1";
+    //const char* hostname = "192.168.32.1";
     // const char* hostname = "172.19.11.26";
-    const char* hostname = "192.168.100.108";
-    // const char* hostname = "192.168.1.140";       // Daniel
+    const char* hostname = "192.168.100.157";
+    //const char* hostname = "sn-1";
+
     int port = 1883;
 
     MQTTPacket_connectData logindata = MQTTPacket_connectData_initializer;

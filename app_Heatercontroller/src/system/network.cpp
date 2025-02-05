@@ -7,6 +7,7 @@ void network_init() {
     // Connect to the network with the default networking interface
     // if you use WiFi: see mbed_app.json for the credentials
     printf("starting network\n");
+    
     network = NetworkInterface::get_default_instance();
     if (!network) {
         printf("Cannot connect to the network, see serial output\n");
