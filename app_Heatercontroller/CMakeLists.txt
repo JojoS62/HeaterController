@@ -27,8 +27,8 @@ target_link_libraries(HeaterController
     PRIVATE
         mbed-os
         mbed-storage
+        mbed-storage-sdio
         mbed-netsocket
-        component_sdio
         lvglDriver
         MQTT_client
 )

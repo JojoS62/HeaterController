@@ -7,7 +7,7 @@
 			"label": "Build HeaterController",
 			"type": "shell",
 			"command": "/opt/cmake-3.26.4-linux-x86_64/bin/cmake",
-			"args": ["--build", "/home/jojo/projects/HeaterController/build/H747-STM32CUBE-Debug", "--target", "HeaterController"],
+			"args": ["--build", "/home/jojo/projects/HeaterController/build/F769NI-STM32CUBE-Debug", "--target", "HeaterController"],
 		},
 		// Build HeaterController and run the GDB server
 		{
@@ -20,7 +20,7 @@
 			"label": "Build Hello",
 			"type": "shell",
 			"command": "/opt/cmake-3.26.4-linux-x86_64/bin/cmake",
-			"args": ["--build", "/home/jojo/projects/HeaterController/build/H747-STM32CUBE-Debug", "--target", "Hello"],
+			"args": ["--build", "/home/jojo/projects/HeaterController/build/F769NI-STM32CUBE-Debug", "--target", "Hello"],
 		},
 		// Build Hello and run the GDB server
 		{
@@ -32,7 +32,7 @@
 			"label": "GDB Server",
 			"type": "shell",
 			"command": "/opt/cmake-3.26.4-linux-x86_64/bin/cmake",
-			"args": ["-E", "env", "LD_LIBRARY_PATH=/opt/st/stm32cubeide_1.10.1/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.linux64_2.0.300.202203231527/tools/bin/native/linux_x64", "/opt/st/stm32cubeide_1.10.1/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.linux64_2.0.300.202203231527/tools/bin/ST-LINK_gdbserver", "--swd", "-cp", "/opt/st/stm32cubeide_1.10.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.0.301.202207041506/tools/bin", "-p", "23331", "--halt"],
+			"args": ["-E", "env", "LD_LIBRARY_PATH=/opt/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.linux64_2.1.400.202404281720/tools/bin/native/linux_x64", "/opt/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.linux64_2.1.400.202404281720/tools/bin/ST-LINK_gdbserver", "--swd", "-cp", "/opt/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.1.400.202404281720/tools/bin", "-p", "23331", "--halt"],
 			"isBackground": true,
 			// This task is run to start the GDB server, so that the launch configuration can connect to it.
       		// Problem is, it's a GDB server, and since it never exits, VSCode

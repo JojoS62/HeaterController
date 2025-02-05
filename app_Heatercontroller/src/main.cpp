@@ -17,7 +17,7 @@ int main()
     // printf("\n"); 
 
     // io_init();
-    // lvgl_interface_init();
+    lvgl_interface_init();
     network_init();
     mqtt_init();
 
@@ -33,7 +33,7 @@ int main()
 }
 
 // workaround for missing functions since gcc 11.3
-extern "C" {
-    void _kill() {};
-    void _getpid() {};
-}
+// extern "C" {
+//     void _kill() {};
+//     void _getpid() {};
+// }

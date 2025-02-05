@@ -22,7 +22,7 @@ void _ui_basic_set_property(lv_obj_t * target, int id, int val)
 
 void _ui_dropdown_set_property(lv_obj_t * target, int id, int val)
 {
-    if(id == _UI_DROPDOWN_PROPERTY_SELECTED) lv_dropdown_set_selected(target, val);
+    if(id == _UI_DROPDOWN_PROPERTY_SELECTED) lv_dropdown_set_selected(target, val, LV_ANIM_OFF);
 }
 
 void _ui_image_set_property(lv_obj_t * target, int id, uint8_t * val)
@@ -75,12 +75,13 @@ void _ui_slider_increment(lv_obj_t * target, int val, int anm)
 void _ui_flag_modify(lv_obj_t * target, int32_t flag, int value)
 {
     if(value == _UI_MODIFY_FLAG_TOGGLE) {
-        if(lv_obj_has_flag(target, flag)) lv_obj_clear_flag(target, flag);
-        else lv_obj_add_flag(target, flag);
+        if(lv_obj_has_flag(target, (lv_obj_flag_t)flag)) lv_obj_clear_flag(target, (lv_obj_flag_t)flag);
+        else lv_obj_add_flag(target, (lv_obj_flag_t)flag);
     }
-    else if(value == _UI_MODIFY_FLAG_ADD) lv_obj_add_flag(target, flag);
-    else lv_obj_clear_flag(target, flag);
+    else if(value == _UI_MODIFY_FLAG_ADD) lv_obj_add_flag(target, (lv_obj_flag_t)flag);
+    else lv_obj_clear_flag(target, (lv_obj_flag_t)flag);
 }
+
 void _ui_state_modify(lv_obj_t * target, int32_t state, int value)
 {
     if(value == _UI_MODIFY_STATE_TOGGLE) {

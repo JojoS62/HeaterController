@@ -2,7 +2,7 @@
     "vsmqtt.brokerProfiles": [
         {
             "name": "sn-local",
-            "host": "192.168.100.108",
+            "host": "192.168.100.157",
             "port": 1883,
             "clientId": "vsmqtt_client"
         }
@@ -11,6 +11,29 @@
     "cortex-debug.variableUseNaturalFormat": false,
     "cmake.configureOnOpen": true,
     "cmake.buildDirectory": "${workspaceFolder}/build/${variant:board}-${variant:buildType}",
+    "cmake.options.statusBarVisibility": "compact",
+    "cmake.options.advanced": {
+       "build": {
+          "statusBarVisibility": "visible",
+          "inheritDefault": "hidden"
+       },
+       "launch": {
+          "statusBarVisibility": "visible",
+          "inheritDefault": "hidden"
+       },
+       "debug": {
+          "statusBarVisibility": "visible",
+          "inheritDefault": "hidden"
+       },
+       "cpack": {
+          "statusBarVisibility": "hidden",
+          "inheritDefault": "hidden"
+       },
+       "workflow": {
+          "statusBarVisibility": "hidden",
+          "inheritDefault": "hidden"
+       }
+    } 
     "files.associations": {
         "*.cpp": "cpp",
         "*.htm": "html",

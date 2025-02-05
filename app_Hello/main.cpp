@@ -38,10 +38,3 @@ int main()
     }
     return 0;
 }
-
-// workaround for missing functions since gcc 11.3
-// should never be called
-extern "C" {
-    void _kill() { __BKPT (); };
-    void _getpid() { __BKPT (); };
-}

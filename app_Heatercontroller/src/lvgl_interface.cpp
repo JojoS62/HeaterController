@@ -46,14 +46,18 @@ typedef void (*lv_update_cb_t)(bool);
 [[maybe_unused]] static void lv_screen_update(lv_timer_t* timer)
 {
 	static lv_obj_t* lastScreen = 0;
-	bool firstStart;
 
-	lv_obj_t* actScreen = lv_disp_get_scr_act((lv_disp_t*)timer->user_data);
-	firstStart = (actScreen != lastScreen);
+    lv_display_t* disp = (lv_display_t*)lv_timer_get_user_data(timer);
+	lv_obj_t* actScreen = lv_display_get_screen_active(disp);
+    if (!actScreen) {
+        return;
+    }
+	bool firstStart = (actScreen != lastScreen);
 	lastScreen = actScreen;
 
-	if (actScreen && actScreen->user_data) {
-		((lv_update_cb_t)actScreen->user_data)(firstStart);
+    lv_update_cb_t update_cb = (lv_update_cb_t)lv_obj_get_user_data(actScreen);
+	if (update_cb) {
+		update_cb(firstStart);
 	}
 }
 
